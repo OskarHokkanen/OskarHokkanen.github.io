@@ -54,13 +54,30 @@ body {
 }
 
 .learnmore-button {
-    background-color: #9EBBBE;
+    background-color: #f0f0f0;
     max-width: fit-content;
     padding: 10px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    margin-top: 30px;
+}
+
+.learnmore-button a {
+    background-color: #f0f0f0;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+
+.learnmore-button a:hover {
+    color: #ffffff;
+    background-color: #9EBBBE;
 }
 
 .learnmore-button:hover {
-    background-color: #50b3be;
+    background-color: #9EBBBE;
     max-width: fit-content;
 }
 
