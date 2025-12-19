@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message in a Bottle - Project Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Clean, contrasting palette */
+            --bg-main: #fafafa;
+            --bg-section: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-warm: #d4a574;
+            --accent-cool: #4a90a4;
+            --border-light: #e5e5e5;
+            --shadow-soft: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--bg-section) 0%, #f5f5f5 100%);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            font-size: 0.95rem;
+            color: var(--accent-cool);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            background: var(--bg-section);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .gallery-item-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: linear-gradient(135deg, #e9e9e9 0%, #d4d4d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .gallery-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item-caption {
+            padding: 1.5rem;
+        }
+
+        .gallery-item-caption h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .gallery-item-caption p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Mobile App Showcase Layout */
+        .app-showcase {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            padding: 3rem;
+            background: var(--bg-section);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--shadow-soft);
+            margin-bottom: 2rem;
+        }
+
+        .app-screens {
+            display: flex;
+            gap: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .app-screens img {
+            width: 200px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .app-screens img:hover {
+            transform: translateY(-5px);
+        }
+
+        .app-description {
+            flex: 1;
+        }
+
+        .app-description h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .app-description p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .app-description ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .app-description ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .app-description ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-cool);
+            font-weight: bold;
+        }
+
+        /* Features List */
+        .features-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            background: var(--bg-section);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            transition: border-color 0.3s ease;
+        }
+
+        .feature-item:hover {
+            border-color: var(--accent-warm);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Technology Tags */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .tech-tag {
+            padding: 0.5rem 1.25rem;
+            background: var(--bg-section);
+            border: 1px solid var(--border-light);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--bg-section);
+            border-top: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-showcase {
+                flex-direction: column;
+                padding: 2rem;
+            }
+
+            .app-screens {
+                justify-content: center;
+            }
+
+            .app-screens img {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tagline">Project Portfolio</div>
+            <h1>Message in a Bottle</h1>
+            <p class="subtitle">A mindful messaging experience connecting strangers through the cosmic ocean</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">About the Project</h2>
+            <div class="about-content">
+                <p>
+                    <strong>Message in a Bottle</strong> reimagines digital communication by slowing it down and making it intentional. 
+                    This prototype explores how we might connect with strangers in a more meaningful, meditative way, free from 
+                    the constant notifications and instant replies that dominate modern messaging. Message in a Bottle strives to illustrate uncertainty as a positive quality.
+                </p>
+                <p>
+                    The experience is designed around patience and ritual. Users discover messages floating in a 
+                    cosmic ocean, hold their hand on the screen to "retrieve" them, and craft thoughtful replies knowing that 
+                    responses may arrive days, weeks, or never at all.
+                </p>
+                <p>
+                    This project questions the dopamine-driven feedback loops of social media and asks: what if we designed 
+                    technology that honored our need for genuine connection instead?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rider Spoke Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Based on Rider Spoke by Blast Theory</h2>
+            <div class="about-content">
+                <p>
+                    As part of a challenge we were asked to redesign one of Blast Theory's projects, finding a change in that project and keeping or extendig the change to be exclusively online.  
+                </p>
+                <p>
+                    Rider spoke is a art project where people traveled around city streets on bikes, traveling to different locations and recording messages. Other riders travel to the same locations and find their messages and listen to them.
+                    From this experience we found many changes, however, one stood out.
+                </p>
+                <p>
+                    <b>Highlight connection and communication between anonymous people in an uncertain way.</b>
+                </p>
+            </div>
+        </div>
+    </section>
+
+     <!-- Theory Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Uncertainty, Slow technology & Mystique</h2>
+            <div class="about-content">
+                <p>
+                    While keeping the change i also wanted to experiment with concepts of exploring uncertainty. 
+                    The Rider Spoke project is a very different way of communicating with people than what is today where we instantly communicate with each other in seconds. 
+                    Message in a bottle strives to take a step back from todays instant messaging slowing it down, giving time for reflection and uncertainty.
+                </p>
+                <p>
+                    Design decisions has been drawn from my understanding of uncertainty, trying to illustrate that there are no commitments and no expectations on recieving or answering a message. 
+                    The user can decide if they want to answer a message or just let it drift by. 
+                    Instead of seeing uncertainty as risky the design communicates that it is fine and that it might be needed in order to slow down and reflect.
+                </p>
+                <p>
+                    The experience was also inspired by Slow Technology, to design technology for reflection. This was for example done by having interactions such as opening a bottle take time, and forcing the person opening it to hold their finger down until it is open.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" style="background: var(--bg-section);">
+        <div class="container">
+            <h2 class="section-title">Visual Overview</h2>
+
+            <!-- App Showcase 1: Splash Screen & Discovery -->
+            <div class="app-showcase">
+                <div class="app-screens">
+                    <img src="/img/Spash_Screen.png" alt="Splash Screen"/>
+                    <img src="/img/Bottle_Floating.png" alt="AR Discovery Screen"/>
+                </div>
+                <div class="app-description">
+                    <h3>Welcome & Discovery</h3>
+                    <p>The journey begins with an invitation to slow down and connect. Users enter a mystical cosmic ocean where messages appear as glowing bottles drifting through space, waiting to be discovered.</p>
+                    <ul>
+                        <li>Mystical aesthetic sets the initial tone</li>
+                        <li>Bottles float organically, encouraging exploration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- App Showcase 2: Reading & Writing -->
+            <div class="app-showcase">
+                
+                <div class="app-description">
+                    <h3>Read & Respond</h3>
+                    <p>Users hold their hand on the screen to retrieve messages, a deliberate ritual that makes the user wait in the moment.</p>
+                    <ul>
+                        <li>Hold gesture forces the user to slow down and wait</li>
+                        <li>Messages can drift away if they are too far away from you</li>
+                        <li>Inspiration from calm and zen-like wording is used in the experience, for example the text inspiring the person to reply to a message.</li>
+                    </ul>
+                </div>
+                <div class="app-screens">
+                    <img src="/img/Opening-a-bottle-2.gif" alt="Reading Screen"/>
+                    <img src="/img/read.png" alt="Reading Screen"/>
+                    <img src="/img/Reply.png" alt="Reading Screen"/>
+                </div>
+            </div>
+
+            <!-- App Showcase 3: Write and Release -->
+            <div class="app-showcase">
+                <div class="app-screens">
+                    <img src="/img/Write.png" alt="Reading Screen"/>
+                    <img src="/img/Release.png" alt="Reading Screen"/>
+                </div>
+                <div class="app-description">
+                    <h3>Write & Release</h3>
+                    <p>The journey of your messages begins with writing your own thoughts, and then sending it of into the world. </p>
+                    <ul>
+                        <li>Users write their own reflections or questions.</li>
+                        <li>Send them away with no intention of getting a response.</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+    </section>
+
+    <!-- Sources Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Sources</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Rider Spoke (2007)</h3>
+                    <p><a href="https://www.blasttheory.co.uk/projects/rider-spoke/" target="_blank">Original art piece</a> </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📄</div>
+                    <h3>Exploring Uncertainty in Digital Scheduling, and The Wider
+Implications of Unrepresented Temporalities in HCI (2022)</h3>
+                    <p><a href="https://doi.org/10.1145/3491102.3502107" target="_blank">DOI</a></p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📄</div>
+                    <h3>Slow Technology - Designing for Reflection (2001)</h3>
+                    <p><a href="https://doi.org/10.1145/3491102.3502107" target="_blank">DOI</a></p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Message in a Bottle — A concept prototype exploring uncertain digital connection</p>
+        <p>© 2025 | Oskar Hokkanen Eriksson</p>
+    </footer>
+</body>
+</html>
